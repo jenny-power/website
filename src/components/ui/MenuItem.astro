@@ -1,0 +1,23 @@
+---
+type Props = {
+  href: string
+  label: string
+  Icon: any
+  hoverColor?: string // e.g. "#ff00ff" or "rgba(255,0,255,0.5)"
+}
+
+const { href, label, Icon, hoverColor = "#ff69b4" } = Astro.props
+---
+
+<li>
+  <a
+    href={href}
+    class="flex items-center w-full space-x-2 text-xl rounded-lg p-2 transition-colors duration-300"
+    style={`--hover-bg: ${hoverColor}; cursor: pointer;`}
+    onmouseover="this.style.backgroundColor=this.style.getPropertyValue('--hover-bg')"
+    onmouseout="this.style.backgroundColor=''"
+  >
+    <Icon class="w-5 h-5 flex-shrink-0" fill="currentColor" />
+    <span class="flex-1 text-left">{label}</span>
+  </a>
+</li>

@@ -2,16 +2,20 @@
 import Layout from '../layouts/Layout.astro'
 
 import { profile } from '@/settings'
-import { publications } from '@/data/cv'
-import ProfilePictures from '@/assets/profile_pictures.jpg'
+import ProfilePictures from '@/assets/profile.png'
 import Hero from '@/components/ui/Hero.astro'
-import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
+import Carousel from '@/components/ui/Carousel.jsx'
+
+
 
 const { fullName, title, institute, research_areas } = profile
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const carouselSlides = [
+  { src: '/about-photos/2.svg', alt: 'RI Bath Masterclass', caption: 'RI Bath Masterclass' },
+  { src: '/about-photos/3.svg', alt: 'UL Graduation', caption: 'UL Graduation' },
+  { src: '/about-photos/4.svg', alt: 'SOPHia School Visit', caption: 'School visit SOPHia Project' },
+  { src: '/about-photos/7.svg', alt: 'STEM for Britain', caption: 'STEM for Britain 2023' },
+]
 ---
 
 <Layout>
@@ -25,13 +29,85 @@ const { fullName, title, institute, research_areas } = profile
 		/>
 	</section>
 
-	<!-- Research Areas -->
-	<section class='py-12 border-b'>
-		<Grid gridTitle='Research Areas' gridItems={research_areas} />
-	</section>
+	<!-- About Me Section -->
+<section class="py-12 border-b">
+  <div class="grid lg:grid-cols-3 gap-8 items-center">
+    
+    <!-- Text content -->
+    <div class="lg:col-span-2 space-y-6">
+      <h2 class="text-3xl font-bold mb-8">About Me</h2>
 
-	<!-- Recent Publications -->
-	<section class='py-12 border-t'>
-		<ArticleList listTitle='Recent Publications' listItems={publications} />
-	</section>
+      <p class="text-base-content text-base leading-relaxed">
+        I’m <span class="font-bold">Jenny</span>, a mathematician from Ireland with a love for applying mathematics to real-world challenges. I recently completed my PhD in Applied Mathematics at the University of Bath, funded by the <a href="https://samba.ac.uk/"><span class=" font-bold text-primary ">SAMBa</span></a> Centre for Doctoral Training. My thesis was on <span class="text-secondary font-bold">Optimal Control of Dose delivery in Brachytherapy</span>, a type of radiotherapy cancer treatment. I delved into a wide variety of topics including <span class="text-accent font-bold">partial differential equations</span>, <span class="text-accent font-bold">numerical analysis</span>, <span class="text-accent font-bold">finite element methods</span>, <span class="text-accent font-bold">optimisation</span>, and <span class="text-accent font-bold">radiation physics</span>.
+      </p>
+
+      <p class="text-base-content text-base leading-relaxed">
+        My background in maths actually started in physics! I graduated from the University of Limerick (Ireland) in 2020 with a BSc. in Mathematics and Physics. This is where I discovered the beauty of maths and how it can be used to help the world. I conducted two research projects in geometrical optics, with one applied to ultrasound imaging for detecting breast cancer. It's also where I first began doing outreach through the <a href="http://sophiaphysics.ie/"><span class="font-bold text-primary">SOPHia Project</span></a>, an initiative to encourage more girls to study physics.
+      </p>
+
+      <p class="text-base-content text-base leading-relaxed">
+        Alongside research, I’ve had the joy of talking about maths to a wide range of audiences, from primary school children all the way to members of parliament. Some highlights from my PhD were designing and delivering two Royal Institution masterclasses at Bath, competing and placing silver in the mathematics category at <a href="https://stemforbritain.org.uk/"><span class="font-bold text-primary">STEM for Britain</span></a> at the House of Commons, and presenting my work at the Science Museum in London as a runner-up of <a href="https://www.smithinst.co.uk/takeaim//"><span class=" font-bold text-primary">TakeAIM</span></a>.
+      </p>
+    </div>
+
+<!-- Carousel (hidden on small screens) -->
+ <div class="hidden lg:block">
+      <!-- Carousel (hidden on small screens) -->
+      <div class="hidden lg:block">
+        <Carousel slides={carouselSlides} client:load />
+      </div>
+</div>
+</section>
+
+  <!-- Auto-fade + Swipe Script -->
+  <script type="module">
+    const carousel = document.getElementById('aboutCarousel')
+    const slides = carousel.querySelectorAll('div[data-index]')
+    let current = 0
+    const total = slides.length
+    let startX = 0
+    let endX = 0
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? '1' : '0'
+      })
+    }
+
+    // Show first slide
+    showSlide(current)
+
+    // Auto-slide every 5s
+    let interval = setInterval(() => {
+      current = (current + 1) % total
+      showSlide(current)
+    }, 5000)
+
+    // Swipe detection
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX
+    })
+
+    carousel.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX
+      const diff = startX - endX
+      if (Math.abs(diff) > 50) {
+        clearInterval(interval) // stop auto-slide temporarily
+        if (diff > 0) {
+          // swipe left
+          current = (current + 1) % total
+        } else {
+          // swipe right
+          current = (current - 1 + total) % total
+        }
+        showSlide(current)
+        // restart auto-slide
+        interval = setInterval(() => {
+          current = (current + 1) % total
+          showSlide(current)
+        }, 5000)
+      }
+    })
+  </script>
+
 </Layout>

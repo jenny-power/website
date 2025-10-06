@@ -4,16 +4,20 @@ import { Image } from 'astro:assets'
 import SocialIcons from './SocialIcons.astro'
 
 
+
+
 const {fullName, title, institute, profilePicture} = Astro.props
 ---
 <div class='flex-1'>
   <h1 class='text-4xl font-bold mb-4'>
-    Welcome! I'm <span class='text-secondary'>{fullName}</span>
+    Hello! I'm <span class='text-primary'>{fullName}</span>
   </h1>
-  <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p>
+  <p class='text-xl text-gray-600 mb-4'>{"Innovation Research Associate"}{institute ? ` at ${institute}` : ''}</p>
   <p class='text-lg mb-6'>
-    Brief impactful description of your research focus and academic mission.
-    Highlight your key contributions and areas of expertise.
+    I recently completed my PhD in Applied Mathematics, 
+    where my research focused on PDE-constrained optimisation for radiotherapy treatment planning. 
+    I'm passionate about mathematics with impact and building bridges between researchers, policymakers, 
+    and the public through science communication.
   </p>
   <div class='flex gap-4'>
     <SocialIcons />

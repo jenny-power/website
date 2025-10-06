@@ -1,0 +1,37 @@
+---
+type Props = {
+  color?: string
+  thickness?: number
+  amplitude?: number
+  wavelength?: number
+}
+
+const { color = "currentColor", thickness = 3, amplitude = 10, wavelength = 40 } = Astro.props
+
+// calculate points for the wave
+const width = 300
+const baseline = amplitude
+let path = `M0 ${baseline}`
+let x = 0
+let up = true
+
+while (x < width) {
+  const cpX = x + wavelength / 2
+  const cpY = up ? baseline - amplitude : baseline + amplitude
+  x += wavelength
+  path += ` Q${cpX} ${cpY}, ${x} ${baseline}`
+  up = !up
+}
+---
+
+<div class="w-full my-6 flex justify-center">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${width} ${amplitude * 2}`} class="w-full h-10">
+    <path
+      d={path}
+      fill="none"
+      stroke={color}
+      stroke-width={thickness}
+      stroke-linecap="round"
+    />
+  </svg>
+</div>

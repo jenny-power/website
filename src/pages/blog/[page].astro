@@ -5,69 +5,119 @@ import { trimExcerpt } from '@/lib/utils'
 import { template } from '@/settings'
 import { getCollection } from 'astro:content'
 
-export async function getStaticPaths({ paginate }): Promise<Astro.getStaticPathsResult> {
-    const blogEntries = await getCollection("blog");
+import { Image } from 'astro:assets'
+import Pixel from '@/assets/pixel.svg'
 
-    const posts = blogEntries
-        .map(post => ({
-            title: post.data.title,
-            date: post.data.date,
-            badge: post.data.tags[0],
-            excerpt: trimExcerpt(post.data.excerpt),
-            slug: `${template.base}/blog/${post.id}`,
-        }))
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+import SocialIcons from '@/components/ui/SocialIcons.astro'
 
-    return paginate(posts, {
-        pageSize: template.postPerPage,
-    });
+// Define the shape of a single blog post
+interface BlogPost {
+  title: string;
+  date: string;
+  badge?: string;
+  excerpt: string;
+  slug: string;
+  image: { url: string; alt: string };
 }
-const { page } = Astro.props
+
+// Define the shape of page props from paginate
+interface PageProps {
+  page: {
+    data: BlogPost[];
+  };
+}
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const blogEntries = await getCollection("blog");
+
+  const posts = blogEntries.map(post => ({
+    title: post.data.title,
+    date: post.data.date,
+    badge: post.data.tags?.[0],
+    excerpt: trimExcerpt(post.data.excerpt),
+    slug: `${template.base}/blog/${post.id}`,
+    image: post.data.image
+      ? { url: post.data.image.url, alt: post.data.image.alt }
+      : { url: '/images/default-blog.jpg', alt: 'Default blog image' }
+  }));
+
+  return paginate(posts, { pageSize: template.postPerPage });
+}
+
+// Cast Astro.props to the typed interface
+const { page } = Astro.props as PageProps;
 ---
 
 <Layout title='Blog'>
-    <div>
-		<h1 class='text-3xl font-bold mb-8'>Blog Posts</h1>
-		<div class='grid gap-8'>
-			{
-				page.data.map(post => (
-					<article class='card bg-base-200 transition-all'>
-						<div class='card-body'>
-							<div class='flex justify-between items-start'>
-								<h2 class='card-title text-xl'>
-                            <a href={post.slug} class='hover:text-accent'>
-										{post.title}
-									</a>
-								</h2>
-								<div class='badge badge-accent badge-outline p-4'>
-									{post.badge}
-								</div>
-							</div>
-							<time datetime={post.date} class='text-sm text-base-content/71'>
-								{new Date(post.date).toLocaleDateString('en-US', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})}
-							</time>
-							<p class='mt-4'>{post.excerpt}</p>
-							<div class='card-actions justify-end'>
-								<a
-                            href={post.slug}
-									class='btn btn-sm btn-secondary text-secondary-content'
-								>
-									Read More
-								</a>
-							</div>
-						</div>
-					</article>
-				))
-			}
-		</div>
+  <div class='flex-1'>
+    <h1 class='text-4xl font-bold mb-4'>
+      <span class="text-3xl" role="img" aria-label="rainbow">🌈</span> Blog 
+    </h1>
 
-		<div class='flex justify-center mt-8'>
-			<Pagination page={page} />
-		</div>
+    <!-- Hero section -->
+    <section class="flex flex-col lg:flex-row items-center lg:items-start gap-8 border-b pb-12">
+      <!-- Accent bar -->
+      <div class="hidden lg:block w-1 bg-primary rounded-full h-32 "></div>
+
+      <!-- Text content -->
+      <div class="flex-1 space-y-4">
+        <p class="text-base-content/80">
+          Welcome to my little corner of the internet where I share things I find interesting. Most of my posts have stemmed from my experience doing my PhD in maths. I mainly talk about bits of maths I find interesting, PhD tips and tricks, making LaTeX look nice, and STEM books. 
+        </p>
+        <p class="text-base-content/80">
+          For a more day-to-day account, you can follow me on my Instagram account 
+          <a href="https://www.instagram.com/thejennypowerhour/" class="font-bold text-primary">@thejennypowerhour</a>
+        </p>
+        <div class='flex gap-4'>
+          <SocialIcons />
+        </div>
+      </div>
+
+      <!-- Profile image -->
+      <div class="hidden lg:block w-44 h-44 rounded-full ring-4 ring-base-300 flex items-center justify-center overflow-hidden bg-accent/20">
+        <Image
+          src={Pixel}
+          alt="Pixel Icon"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </section>
+
+    <div class="mt-8"></div>
+
+    <!-- Modern gallery grid -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {page.data.map(post => (
+        <a
+          href={post.slug}
+          class="relative block overflow-hidden rounded-xl shadow-lg group hover:shadow-2xl transition"
+        >
+          {post.image && (
+            <img
+              src={post.image.url}
+              alt={post.image.alt}
+              class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+            <h2 class="text-xl font-bold text-white">{post.title}</h2>
+            {post.badge && (
+              <span class="inline-block mt-1 px-2 py-1 text-xs font-semibold rounded bg-accent text-accent-content">
+                {post.badge}
+              </span>
+            )}
+            <p class="mt-2 text-sm text-white line-clamp-2">{post.excerpt}</p>
+          </div>
+        </a>
+      ))}
     </div>
 
+    <!-- Pagination -->
+    <div class='flex justify-center mt-8'>
+      <Pagination page={page} />
+    </div>
+  </div>
 </Layout>

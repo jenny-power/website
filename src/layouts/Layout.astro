@@ -9,6 +9,8 @@ import Head from '../components/Head.astro'
 
 import { seo, profile, template } from '../settings'
 import Footer from '../components/ui/Footer.astro'
+import "../styles/global.css";
+
 
 type Props = {
 	title?: string
@@ -24,12 +26,15 @@ const {
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='en' data-theme={template.darkTheme}>
 	<head>
 		{template.transitions && <ClientRouter /> }
 
 		<Head title={title} description={description} image={image} />
-
+	<link
+		href="https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&family=Alfa+Slab+One&family=Courier+Prime&family=Ultra&display=swap&family=Patua+One&display=swap"
+		rel="stylesheet"
+	/>
 
 
 	</head>
@@ -43,7 +48,6 @@ const {
 						<div class='navbar-start'>
 							{template.menu_left &&
 								<DarkLightController/>
-								/* <ThemeSelector transition:persist /> */
 							}
 							<label for='my-drawer' class='btn btn-square btn-ghost lg:hidden'>
 								<BetterIcon>
@@ -52,7 +56,7 @@ const {
 										fill='none'
 										viewBox='0 0 24 24'
 										stroke-width='1.5'
-										class='size-6 stroke-current'
+										class='size-8 stroke-current'
 									>
 										<path
 											stroke-linecap='round'
@@ -63,13 +67,11 @@ const {
 							</label>
 						</div>
 						<div class='navbar-center lg:hidden text-lg font-black'>
-							{profile.title}
 							{profile.fullName}
 						</div>
 						<div class='navbar-end'>
 							{!template.menu_left &&
 								<DarkLightController/>
-								/* <ThemeSelector transition:persist /> */
 							}
 						</div>
 					</nav>
