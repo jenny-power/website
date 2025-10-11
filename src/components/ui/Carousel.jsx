@@ -20,7 +20,7 @@ export default function CarouselClient({ slides }) {
           }`}
         >
           <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" />
-          <div className="absolute bottom-4 w-full text-center text-base-content p-2 font-patua bg-white/70">
+          <div className="absolute bottom-4 w-full text-center text-black p-2 font-patua bg-white/70">
             {slide.caption}
           </div>
         </div>

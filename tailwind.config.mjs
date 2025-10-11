@@ -5,7 +5,8 @@ export default {
         extend: {
         fontFamily: {
             sans: ["Inter", "ui-sans-serif", "system-ui"],  // body font
-            heading: ["Fredoka", "sans-serif"],            // headings
+            heading: ["Fredoka", "sans-serif","bungee-regular"],  
+        // headings
         },
         colors: {
         neonPink: "var(--neon-pink)",

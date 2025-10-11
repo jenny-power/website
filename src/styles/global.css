@@ -164,11 +164,24 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* in your global CSS */
-.font-libertinus { font-family: 'Libertinus Keyboard', sans-serif; }
 .font-alfa { font-family: 'Alfa Slab One', cursive; }
 .font-courier { font-family: 'Courier Prime', monospace; }
 .font-ultra { font-family: 'Ultra', serif; }
 .font-patua { font-family: 'Patua One', cursive;}
+.font-rubikdoodle {font-family: 'Rubik Doodle', cursive;}
+.rampart-one-regular {
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.font-fredoka {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
 
 :root {
