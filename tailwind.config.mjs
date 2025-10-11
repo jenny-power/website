@@ -5,7 +5,7 @@ export default {
         extend: {
         fontFamily: {
             sans: ["Inter", "ui-sans-serif", "system-ui"],  // body font
-            heading: ["Fredoka", "sans-serif","bungee-regular"],  
+            heading: ["sans-serif", "Fredoka"],  
         // headings
         },
         colors: {
