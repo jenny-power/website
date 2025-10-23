@@ -1,35 +1,104 @@
 export const experiences = [
 	{
-		company: '',
-		time: '',
-		title: '',
-		location: '',
+		company: 'Mathematics-Driven Innovation Centre (M-DICE), Heriot-Watt University',
+		time: 'June 2025 - Present',
+		title: 'Innovation Research Associate',
+		location: 'Edinburgh, U.K.',
+		description: '',
+	},
+	{
+		company: 'Institute for Mathematical Innovation (IMI), University of Bath',
+		time: 'January 2024 - April 2024',
+		title: 'Mathematical Innovation Research Assistant',
+		location: 'Bath, U.K.',
+		description: '',
+	},
+	{
+		company: 'TNO Holst Centre',
+		time: 'January 2019 - August 2019',
+		title: 'Physics Research Intern',
+		location: 'Eindhoven, The Netherlands',
+		description: '',
+	},
+	{
+		company: 'Mathematics Applications Consortium for Science and Industry (MACSI), University of Limerick',
+		time: 'June 2018 - August 2018',
+		title: 'Mathematical Research Intern',
+		location: 'Limerick, Ireland',
+		description: '',
+	},
+];
+
+
+export const teaching = [
+	{
+		company: 'We Solve Problems',
+		time: 'October 2024 - June 2025',
+		title: 'Specialist Maths Tutor',
+		location: 'Bath, U.K.',
+		description: '',
+	},	
+		{
+		company: 'University of Bath',
+		time: 'October 2020 ‑ January 2023',
+		title: 'Graduate Teaching Assistant',
+		location: 'Bath, U.K.',
+		description: '',
+	},
+	{
+		company: 'Studyclix',
+		time: 'July 2021 ‑ January 2022',
+		title: 'Mathematics Content Creator',
+		location: 'Ireland (Remote)',
+		description: '',
+	},
+	{
+		company: 'Self-Employed',
+		time: 'September 2016 - May 2021',
+		title: 'Private Maths Tutor',
+		location: 'Ireland',
 		description: '',
 	},
 	// {
-	// 	company: 'Radium Institute (Institut du Radium)',
-	// 	time: '1914 - 1934',
-	// 	title: 'Director',
-	// 	location: 'Paris, France',
-	// 	description: 'Led groundbreaking studies on radioactivity and mentored future Nobel Prize laureates.',
+	// 	company: 'Parallel by Simon Singh',
+	// 	time: 'October 2025 - Present',
+	// 	title: 'Maths Circles Presenter',
+	// 	location: 'U.K. (Remote)',
+	// 	description: '',
 	// },
+	{
+		company: 'University of Limerick',
+		time: 'March 2018 - May 2018',
+		title: 'Physics Peer Mentor',
+		location: 'Limerick, Ireland',
+		description: '',
+	},	
 ];
+
+
 
 export const education = [
 	{
-		school: '',
-		time: '',
-		degree: '',
-		location: '',
+		school: 'University of Bath',
+		time: '2021 - 2025',
+		degree: 'PhD in Statistical Applied Mathematics',
+		location: 'Bath, U.K.',
 		description: '',
 	},
-	// {
-	// 	school: 'University of Paris',
-	// 	time: '1891 - 1895',
-	// 	degree: 'Master’s in Physics and Mathematics',
-	// 	location: 'Paris, France',
-	// 	description: 'Graduated at the top of her class in physics and second in mathematics.',
-	// },
+	{
+		school: 'University of Limerick',
+		time: '2016 - 2020',
+		degree: 'Bachelor of Science (BSc) in Mathematics and Physics',
+		location: 'Limerick, Ireland',
+		description: '',
+	},
+		{
+		school: 'University of Bath',
+		time: '2020 - 2021',
+		degree: 'Master of Research (MRes) in Statistical Applied Mathematics',
+		location: 'Bath, U.K.',
+		description: '',
+	},
 ];
 
 export const skills = [

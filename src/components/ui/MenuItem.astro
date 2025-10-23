@@ -3,18 +3,37 @@ type Props = {
   href: string
   label: string
   Icon: any
-  hoverColor?: string // e.g. "#ff00ff" or "rgba(255,0,255,0.5)"
+  hoverColor?: string // e.g. "#ff00ff"
 }
 
 const { href, label, Icon, hoverColor = "#ff69b4" } = Astro.props
 ---
 
-<li>
+<li class="rounded-lg overflow-hidden">
   <a
     href={href}
     class="flex items-center w-full space-x-2 text-xl rounded-lg p-2 transition-colors duration-300"
     style={`--hover-bg: ${hoverColor}; cursor: pointer;`}
-    onmouseover="this.style.backgroundColor=this.style.getPropertyValue('--hover-bg')"
+    onmouseover="
+      // Get theme toggle input
+      const themeInput = document.querySelector('input[data-choose-theme]');
+      const isDark = themeInput ? themeInput.checked : false;
+
+      // Get base hover color
+      const baseColor = this.style.getPropertyValue('--hover-bg').trim();
+
+      if(isDark && /^#([0-9A-Fa-f]{6})$/.test(baseColor)) {
+        // Convert hex to muted rgba
+        const hex = baseColor.replace('#','');
+        const r = parseInt(hex.substr(0,2),16);
+        const g = parseInt(hex.substr(2,2),16);
+        const b = parseInt(hex.substr(4,2),16);
+        this.style.backgroundColor = `rgba(${r},${g},${b},0.7)`;
+      } else {
+        // Light mode or invalid hex → full color
+        this.style.backgroundColor = baseColor;
+      }
+    "
     onmouseout="this.style.backgroundColor=''"
   >
     <Icon class="w-6 h-6 flex-shrink-0" fill="currentColor" />

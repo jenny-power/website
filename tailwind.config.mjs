@@ -44,7 +44,7 @@ export default {
           neutral: "#1e2030",      // Macchiato neutral surface
           "base-100": "#24273a",   // Macchiato base
           "base-200": "#494d64",   // slightly lighter background
-          "base-300": "#2a2c3d",   // even lighter background
+          "base-300": "#372f54",   // even lighter background
           info: "#91d7e3",         // Macchiato sky
           success: "#a6da95",      // Macchiato green
           warning: "#eed49f",      // Macchiato yellow

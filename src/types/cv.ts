@@ -14,6 +14,14 @@ export interface Education {
   description?: string;
 }
 
+export interface Teaching {
+  company: string;
+  time: string;
+  title: string;
+  location?: string;
+  description?: string;
+}
+
 export interface Skill {
   title: string;
   description: string;
@@ -34,6 +42,10 @@ export function isExperience(element: Experience | Education): element is Experi
 
 export function isEducation(element: Education | Experience): element is Education {
   return 'school' in element && 'degree' in element;
+}
+
+export function isTeaching(element: any): element is Teaching {
+  return 'institution' in element && 'title' in element;
 }
 
 export function isSkill(element: Skill | Publication): element is Skill {
