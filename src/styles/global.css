@@ -363,3 +363,7 @@ h1, h2, h3, h4, h5, h6 {
 .animate-slide {
   animation: slide 16s infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}

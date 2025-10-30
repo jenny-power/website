@@ -39,5 +39,5 @@ export const template = {
 export const seo = {
 	default_title: 'Jenny Power',
 	default_description: 'Website for Dr Jenny Power, Mathematician',
-	default_image: '/public/pixel.svg',
+	default_image: '/public/profile.svg',
 }

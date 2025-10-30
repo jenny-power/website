@@ -1,9 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { experiences, education, teaching, skills, publications } from '../data/cv'
+import { experiences, education, teaching, skills, publications, volunteering } from '../data/cv'
 import CvTimeline from '@/components/ui/CvTimeline.astro'
 
-import type { Experience, Education, Teaching, Publication } from '../types/cv'
+
+import type { Experience, Education, Teaching, Publication, Volunteering } from '../types/cv'
 import List from '@/components/ui/List.astro'
 import PublicationsList from '@/components/ui/PublicationsList.astro'
 
@@ -83,6 +84,24 @@ if (publications.length > 0) {
   }
 
   {
+  volunteering.length > 0 && (
+    <section class='mb-12'>
+      <h2 class='text-2xl font-bold mb-6 border-b pb-2'>
+        Volunteering
+      </h2>
+      <CvTimeline elements={volunteering} colored={true} />
+    </section>
+  )
+}
+
+      <h2 class='text-2xl font-bold mb-6 border-b pb-2'>
+        Achievements
+      </h2>
+
+	<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
+        Talks
+      </h2>
+  <!-- {
     orderedPublications.length > 0 && (
       <section class='mb-12'>
         <h2 class='text-2xl font-bold mb-6 border-b pb-2'>
@@ -99,5 +118,5 @@ if (publications.length > 0) {
         <List listTitle='Skills' listItems={skills}/>
       </section>
     )
-  }
+  } -->
 </Layout>

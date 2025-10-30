@@ -4,7 +4,13 @@ export const experiences = [
 		time: 'June 2025 - Present',
 		title: 'Innovation Research Associate',
 		location: 'Edinburgh, U.K.',
-		description: '',
+		description: `
+		<ul>
+			<li>Designed experiments</li>
+			<li>Analyzed data using Python</li>
+			<li><a href="https://github.com/example">Project repo</a></li>
+		</ul>
+		`,
 	},
 	{
 		company: 'Institute for Mathematical Innovation (IMI), University of Bath',
@@ -35,6 +41,13 @@ export const teaching = [
 		company: 'We Solve Problems',
 		time: 'October 2024 - June 2025',
 		title: 'Specialist Maths Tutor',
+		location: 'Bath, U.K.',
+		description: '',
+	},	
+	{
+		company: 'University of Bath',
+		time: 'March 2022, June 2023',
+		title: 'Royal Institution (RI) Masterclass Facilitator',
 		location: 'Bath, U.K.',
 		description: '',
 	},	
@@ -76,7 +89,6 @@ export const teaching = [
 ];
 
 
-
 export const education = [
 	{
 		school: 'University of Bath',
@@ -100,6 +112,63 @@ export const education = [
 		description: '',
 	},
 ];
+
+export const volunteering = [
+	{
+		time: 'September 2022 - September 2024',
+		title: 'Bath SIAM-IMA Student Chapter President',
+		description: `I was the president of the Bath SIAM-IMA Student Chapter <a href="https://bath-siam-ima.github.io/"><i>(website)</i></a> for two years, during which I helped to reinvigorate the chapter as we transitioned out of the COVID period. The society had been largely inactive, so my role involved rebuilding engagement, welcoming new members, and re-establishing a sense of community within the group.
+		I co-organised the following events:
+		<ul> 
+		<li>A game night based on the Channel 4 TV show 'Countdown'.
+		</li> 
+		<li><i>Thesis in Pi</i> competition. This was a playful spin on the three-minute thesis competition, giving participants 3.14 minutes to present their research.</li> 
+		<li>A Pi-Day Quiz Night.</li> 
+		<li>A collaborative event with the University of Bristol Engineering Maths Department, hosted by us, featuring a Derivative Bee, lightning presentations, and networking.</li> 
+		</ul>
+		`,
+	},	
+	{
+		time: 'January 2022 - July 2022',
+		title: 'SAMBa Conference Organiser',
+		description: `
+		I was part of the organising committee for the 6th Annual SAMBa Conference held at the University of Bath on July 5th and 6th 2022. This is the annual conference for the SAMBa CDT, which is organised by a group of second year SAMBa students each year.
+        This was an invaluable experience which I learnt a lot from. My favourite achievements from this undertaking were:
+		<br>
+	        <ul>
+            <li><b>Designing the <a href="/cv-files/SAMBa Conference Program_2022.pdf">conference programme</a>:</b> The programme was extremely well received by attendees. In particular, it was praised for its professional look, focus on participant well-being, and the puzzle corner.</li>
+			<li> <b>Designing the <a href="/cv-files/Mug_design_SAMBaConf2022.png">conference mugs</a>:</b> I designed the conference mugs and organised a competition inviting student contributors to submit figures from their research, with the winning entries featured in a collage on the mugs. I aimed to create a high-quality, lasting item rather than short-lived conference merchandise that would end up in landfill. The feedback was wonderful, with attendees praising both the quality of the item and the personal connection that made them even more excited to attend.
+			</li>
+            <li> <b>Lightning Talks:</b>
+              I organised and ran the lightning talk sessions for our first-year students, giving each speaker three minutes to present their research to their peers. To make the sessions more fun and interactive, the audience were given kazoos to blow when time was up. The talks were a lively and supportive way to help new students share their work and build confidence in presenting.
+            </li>
+		</ul>
+		`,
+	},	
+	{
+		time: 'March 2018 - March 2020',
+		title: 'Physics Outreach Ambassador, The SOPHia Project ',
+		description: `
+		I was one of the original facilitators for the SOPHia Project (<a href = "http://sophiaphysics.ie/"><i>website</i></a>). This is an initiative where undergraduate students deliver workshops to primary and secondary schools promoting physics, particularly to girls and underrepresented genders, in an effort to improve the gender balance in physics in the long-run. I visited six different schools and spoke to classes of all ages, ranging from 5th class (age 10) to 4th year (age 16). This role required me to deliver physics concepts in a very accessible way, while also conducting some demonstrations and having the students participate also. 
+		`,
+	},	
+	{
+		time: 'January 2021 - May 2021',
+		title: 'Symposia Organiser',
+		description: `
+		During my MRes degree, I co-organised an online weekly student-led seminar series on topics related to soft-skills in academia. 
+		`,
+	},	
+	{
+		time: 'September 2019 - August 2020',
+		title: 'Class Representative',
+		description: `
+		I was the class representative for the 4th Year Mathematics and Physics course during my final year of my Bachelor's degree. In this position, I acted as a liaison between my peers and the academic staff. My main duty was to communicate with our lecturers about any issues we may have as a class such as assignment deadlines. That year was particularly challenging due to the Covid-19 pandemic as classes suddenly moved online and there was uncertainty surrounding assessments.  
+		`,
+	},	
+];
+
+
 
 export const skills = [
 	{
