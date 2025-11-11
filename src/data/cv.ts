@@ -5,11 +5,7 @@ export const experiences = [
 		title: 'Innovation Research Associate',
 		location: 'Edinburgh, U.K.',
 		description: `
-		<ul>
-			<li>Designed experiments</li>
-			<li>Analyzed data using Python</li>
-			<li><a href="https://github.com/example">Project repo</a></li>
-		</ul>
+		
 		`,
 	},
 	{
@@ -17,26 +13,41 @@ export const experiences = [
 		time: 'January 2024 - April 2024',
 		title: 'Mathematical Innovation Research Assistant',
 		location: 'Bath, U.K.',
-		description: '',
+		description: `In this role I worked on a project in collaboration with the Brazilian National Center for Monitoring and Early Warning of Natural Disasters (Cemaden). The aim of this work was to model soil-moisture and rainfall dynamics to aid in the forecasting of landslides. We chose to do this using a Physics Informed Neural Network (PINNs) approach. This approach incorporated both the physical Richard’s equation model for flow in a variably saturated porous medium, with the physical soil-moisture and rainfall data that was provided by Cemaden. A publication of this work is currently in preparation. `,
 	},
 	{
 		company: 'TNO Holst Centre',
 		time: 'January 2019 - August 2019',
 		title: 'Physics Research Intern',
 		location: 'Eindhoven, The Netherlands',
-		description: '',
+		description: `I completed an eight-month work placement at TNO Holst Centre as a member the Laser Induced Forward Transfer (LIFT) team. LIFT is a non-contact printing technique for printing circuitry on a micro and nano-scales. Some of my responsibilities included:
+		    <ul>
+            <li>Conducting experiments and operating the LIFT setup independently in a class 4 laserlab. </li>
+            <li>Working in a cleanroom using high-tech equipment and chemical materials in a safe and efficient manner.   </li>
+            <li>Performing demonstrations of the LIFT process to potential industrial partners and collaborators.  </li>
+          </ul>
+		  `,
 	},
 	{
 		company: 'Mathematics Applications Consortium for Science and Industry (MACSI), University of Limerick',
 		time: 'June 2018 - August 2018',
 		title: 'Mathematical Research Intern',
 		location: 'Limerick, Ireland',
-		description: '',
+		description: `
+		I was awarded the opportunity to conduct a research project at the University of Limerick under a Science and Engineering Research Bursary. The project was titled “Geometrical Optics with an Application to Ultrasound Imaging”. The objective of this project was to learn how to approximately model ultrasound waves, using a combination of partial differential equations, geometry and asymptotic analysis, and to show how scattered ultrasound waves may be used to detect tumours in human tissue. I also created a basic simulation and imaging algorithm based on this theory using MATLAB. 
+		`,
 	},
 ];
 
 
 export const teaching = [
+	{
+		company: 'Parallel by Simon Singh',
+		time: 'October 2025 - Present',
+		title: 'Maths Circles Presenter',
+		location: 'U.K. (Remote)',
+		description: '',
+	},	
 	{
 		company: 'We Solve Problems',
 		time: 'October 2024 - June 2025',
@@ -84,7 +95,15 @@ export const teaching = [
 		time: 'March 2018 - May 2018',
 		title: 'Physics Peer Mentor',
 		location: 'Limerick, Ireland',
-		description: '',
+		description: `
+		<p>I was a physics peer mentor for the module “Light/ Waves/ Modern Physics”. This was organised by the University of Limerick to provide tutorial support to first year 							students. Some of my responsibilities included:</p>
+          <ul>
+            <li>Organising group study sessions. </li>
+            <li>Answering students’ questions about the course material and the topics and concepts covered in the module in an accessible, and often 'out of the box' way.  </li>
+            <li>Encouraging independent learning and group work. </li>
+            <li>Taking a record of the students’ attendance and logging it into the online database.</li>
+          </ul>
+		`,
 	},	
 ];
 
@@ -120,7 +139,7 @@ export const volunteering = [
 		description: `I was the president of the Bath SIAM-IMA Student Chapter <a href="https://bath-siam-ima.github.io/"><i>(website)</i></a> for two years, during which I helped to reinvigorate the chapter as we transitioned out of the COVID period. The society had been largely inactive, so my role involved rebuilding engagement, welcoming new members, and re-establishing a sense of community within the group.
 		I co-organised the following events:
 		<ul> 
-		<li>A game night based on the Channel 4 TV show 'Countdown'.
+		<li>A game night based on the Channel 4 TV show <i>Countdown</i>.
 		</li> 
 		<li><i>Thesis in Pi</i> competition. This was a playful spin on the three-minute thesis competition, giving participants 3.14 minutes to present their research.</li> 
 		<li>A Pi-Day Quiz Night.</li> 
@@ -167,6 +186,56 @@ export const volunteering = [
 		`,
 	},	
 ];
+
+
+
+
+export const achievements = [
+	{
+		time: 'March 2023',
+		title: 'STEM for Britain Silver Medalist',
+		description: ``
+		,
+	},
+	{
+		time: 'March 2023',
+		title: 'TakeAIM Runner-up',
+		description: ``
+		,
+	},
+	{
+		time: 'June 2023',
+		title: 'Doctoral Recognition Award Recipient',
+		description: ``
+		,
+	},
+	{
+		time: 'February 2023',
+		title: 'Science Star Award Recipient',
+		description: ``
+		,
+	},
+	{
+		time: 'June 2022',
+		title: 'Best Poster Prize Winner: SIAM-IMA National Student Chapter Conference and Doctoral College Science Faculty Showcase',
+		description: ``
+		,
+	},
+	{
+		time: 'May 2022',
+		title: 'Bath SIAM-IMA Three Minute Thesis - Second Place',
+		description: ``
+		,
+	},
+	{
+		time: 'March 2020',
+		title: 'BT/SAMBa Women in Mathematics Bursary Recipient',
+		description: ``
+		,
+	},
+];
+
+
 
 
 

@@ -1,9 +1,9 @@
 ---
-import { isExperience, isEducation, isTeaching, isVolunteering } from '@/types/cv';
-import type { Experience, Education, Teaching, Volunteering } from '@/types/cv';
+import { isExperience, isEducation, isTeaching, isVolunteering, isAchievement } from '@/types/cv';
+import type { Experience, Education, Teaching, Volunteering, Achievement } from '@/types/cv';
 
 interface Props {
-  elements: (Experience | Education | Teaching | Volunteering)[];
+  elements: (Experience | Education | Teaching | Volunteering | Achievement)[];
   colored: boolean;
 }
 
@@ -67,7 +67,7 @@ const { elements, colored } = Astro.props;
         )}
 
         <!-- Description -->
-        {element.description && (
+        {/* {element.description && (
           <div
 			class="description mt-3 text-[0.95rem] leading-[1.35] text-base-content dark:text-base-content/90 space-y-2 
 			[&_ul]:list-disc [&_ul]:pl-5 [&_li]:mb-1 
@@ -75,7 +75,7 @@ const { elements, colored } = Astro.props;
 			[&_a:hover]:bg-accent/20 [&_a:hover]:text-accent"
 			set:html={element.description}
           ></div>
-        )}
+        )} */}
       </div>
 
       <hr class:list={[{ 'bg-accent': colored }]} />
