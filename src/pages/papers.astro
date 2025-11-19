@@ -4,7 +4,7 @@ import { publications } from "@/data/cv";
 import { highlightAuthor } from "@/lib/utils";
 import {template} from "@/settings";
 
-const ALL_PAPERS = publications; // This will be replaced with dynamic data later
+const ALL_PAPERS = publications;
 ---
 
 <Layout title="Papers | Dr. Jenny Power">
@@ -15,39 +15,44 @@ const ALL_PAPERS = publications; // This will be replaced with dynamic data late
       {
         ALL_PAPERS.map((paper) => (
           <div class="card bg-base-200">
-            <div class="card-body">
-              <h2 class="card-title text-xl">
-                <a href={template.base + paper.link} class="hover:text-accent">
-                  {paper.title}
-                </a>
-              </h2>
-              <p class="text-base mb-2">
-                <span class="font-medium">Authors:</span>{" "}
-                <span set:html={highlightAuthor(paper.authors)} />
+          <div class="card-body py-2"> 
+            <h2 class="card-title text-xl mb-1">
+              <a
+                href={template.base + paper.link}
+                class="hover:text-accent no-underline font-bold"
+              >
+                {paper.title}
+              </a>
+            </h2>
+
+            <p class="text-sm mb-1">
+              <span class="font-medium">Authors:</span>{" "}
+              <span set:html={highlightAuthor(paper.authors)} />
+            </p>
+
+            <p class="text-xs mb-2 text-base-content/70">
+              <span class="italic">{paper.journal}</span> • {paper.time}
+            </p>
+
+            <details class="mt-1">
+              <summary class="cursor-pointer text-sm font-medium hover:text-accent">
+                Show Abstract
+              </summary>
+              <p class="text-sm text-base-content/80 mt-1">
+                {paper.abstract}
               </p>
-              <p class="text-sm mb-3">
-                <span class="italic">{paper.journal}</span> • {paper.time}
-              </p>
-              <p class="text-sm text-base-content/80">{paper.abstract}</p>
-              <div class="card-actions justify-end mt-4">
-                <a href={paper.link} class="btn btn-sm btn-secondary text-secondary-content">
-                  Read Paper
-                </a>
-              </div>
+            </details>
+
+            <div class="card-actions justify-end mt-2">  <!-- reduced spacing -->
+              <a href={paper.link} class="btn btn-sm btn-secondary text-secondary-content">
+                Read Paper
+              </a>
             </div>
           </div>
+        </div>
+
         ))
       }
-    </div>
-
-    <div class="flex justify-center mt-8">
-      <div class="join">
-        <button class="join-item btn btn-sm">«</button>
-        <button class="join-item btn btn-sm">1</button>
-        <button class="join-item btn btn-sm btn-active">2</button>
-        <button class="join-item btn btn-sm">3</button>
-        <button class="join-item btn btn-sm">»</button>
-      </div>
     </div>
   </div>
 </Layout>
