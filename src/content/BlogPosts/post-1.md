@@ -1,5 +1,5 @@
 ---
-title: "The Discovery of Radium"
+title: "This is a Test Blog"
 date: "1902-12-26"
 tags: ["Physics", "Research"]
 excerpt: "An account of the discovery of radium and its properties."
@@ -8,13 +8,12 @@ image:
     alt: 'The Astro logo on a dark background with a pink glow.'
 ---
 
-# The Discovery of Radium
 
 The discovery of radium marked a significant milestone in the field of radioactivity research.
 
 ## The Research Process
 
-In 1898, my husband Pierre and I discovered the element radium. This discovery was the result of years of research and experimentation. Radium is a highly radioactive element with remarkable properties...
+
 
 ### Key Findings
 
@@ -24,7 +23,7 @@ In 1898, my husband Pierre and I discovered the element radium. This discovery w
 
 ## Experimental Methods
 
-Our research involved:
+research involved:
 
 1. Processing uraninite ore
 2. Chemical separation techniques
