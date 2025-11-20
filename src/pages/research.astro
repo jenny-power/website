@@ -5,65 +5,46 @@ import BetterIcon from "@/components/ui/BetterIcon.astro";
 import List from "@/components/ui/List.astro";
 import {RESEARCH_ICONS} from "@/data/researchIcons";
 
-const { research_areas } = profile;
+import ResearchIcon from '@/assets/menu-icons/search.svg';
+
+
+
+const phdProject = {
+  title: "PhD Research: Mathematical Modelling of Brachytherapy",
+  description: `Developed numerical models to optimize placement of radioactive sources for cancer treatment, formulated as a PDE-constrained optimization problem. <a href="/thesis.pdf" class="underline text-accent">Read thesis</a>.`,
+};
+
+
 ---
 
 <Layout title="Research | Dr. Jenny Power">
-  <!-- <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Research Statement</h1>
+  <div class="max-w-none">
+  <header class="flex items-center gap-3 mb-2">
+  <ResearchIcon class="w-7 h-7 flex-shrink-0" fill="currentColor" />
+  <span class="flex-1 text-left text-4xl font-bold">Research</span>
+  </header>
 
-    <div class="mb-12">
-      <p class="text-lg mb-6">
-        My research focuses on groundbreaking investigations into radioactivity and the discovery of new radioactive elements. Through meticulous experimental techniques and innovative methodologies, I aim to advance our understanding of radioactive phenomena and their applications in both physics and chemistry.
-      </p>
-      <p class="text-lg mb-6">
-        This interdisciplinary approach has led to significant discoveries, including the isolation of polonium and radium, contributing to the foundation of modern nuclear physics and radiochemistry.
-      </p>
-    </div>
+    <section class="flex flex-col lg:flex-row items-center lg:items-center gap-8 border-b pb-12">
+      <!-- Accent bar -->
+      <div class="hidden lg:block w-1 bg-primary rounded-full h-64 "></div>
 
-    <h2 class="text-2xl font-bold mb-6">Research Areas</h2>
-    <div class="grid gap-8 mb-12">
-      {
-        research_areas.map((area) => (
-          <div class="flex gap-6 items-start">
-            <BetterIcon>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-width="2"
-                class="size-6 stroke-accent"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d={RESEARCH_ICONS[area.field as keyof typeof RESEARCH_ICONS]?.path || RESEARCH_ICONS['computer-science'].path}
-                />
-              </svg>
-            </BetterIcon>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">{area.title}</h3>
-              <p class="text-base">{area.description}</p>
-            </div>
-          </div>
-        ))
-      }
-    </div>
+      <!-- Text content -->
+      <div class="flex-1 space-y-4">
+        <p class="text-lg text-base-content">
+         My research interests lie in <span class="text-accent font-bold">PDE modelling</span> and <span class="text-accent font-bold">numerical analysis</span>. In particular, I am really interested in finite element methods, reaction diffusion equations, singularly perturbed problems, 
+         PDE-constrained optimisation, optimal control, inverse problems, and wave phenomena. I am also interested in applications relating to medical physics.
+        </p>
+        <p class="text-lg text-base-content">
+         I am currently working as an Innovation Research Associate at the Mathematics-Driven Innovation Centre (<a href="https://mdice.site.hw.ac.uk/"><span class=" font-bold text-primary ">M-DICE</span></a>) at Heriot Watt University. My work focuses on interdisciplinary research, applying advanced mathematical methods and research to problems from industry. Recently, I have been working on problems in Mixed-Integer Linear Programming and Mathematical Biology.
+        </p>
+      </div>
+    </section>
 
-    <List listTitle="Current Projects" listItems={[
-      {
-        title: "Radioactivity Studies",
-        description: "Investigation of radioactive properties in uranium minerals and isolation of new radioactive elements."
-      },
-      {
-        title: "Measurement Techniques",
-        description: "Development of precise methods for measuring radioactive emissions and their properties."
-      }
-    ]} />
 
-    <h2 class="text-2xl font-bold mb-6">Research Impact</h2>
-    <p class="text-lg mb-6">
-      My research has opened new frontiers in radioactivity studies, leading to practical applications in both scientific research and medical treatments. The discoveries have revolutionized our understanding of atomic structure and radioactive decay processes.
-    </p>
-  </div> -->
+
+
+
+
+
+  
 </Layout>
