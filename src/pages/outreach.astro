@@ -1,18 +1,35 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from "@/layouts/Layout.astro";
+import OutreachIcon from '@/assets/menu-icons/talk.svg';
 
-import { profile } from '@/settings'
-import { publications } from '@/data/cv'
-import ProfilePictures from '@/assets/profile.png'
-import Hero from '@/components/ui/Hero.astro'
-import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
 
-const { fullName, title, institute, research_areas } = profile
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="Outreach | Dr. Jenny Power">
+  <div class="max-w-none">
+  <header class="flex items-center gap-3 mb-2">
+  <OutreachIcon class="w-7 h-7 flex-shrink-0" fill="currentColor" />
+  <span class="flex-1 text-left text-4xl font-bold">Outreach</span>
+  </header>
+
+    <section class="flex flex-col lg:flex-row items-center lg:items-center gap-8 border-b pb-12">
+      <!-- Accent bar -->
+      <div class="hidden lg:block w-1 bg-primary rounded-full h-32 "></div>
+
+      <!-- Text content -->
+      <div class="flex-1 space-y-4">
+        <p class="text-lg text-base-content">
+         Check back soon :)
+        </p>
+      </div>
+    </section>
+
+
+
+    
+
+
+
+
+  
 </Layout>
