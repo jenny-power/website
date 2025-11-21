@@ -61,21 +61,11 @@ const { title, description, image } = Astro.props
   });
 </script>
 
-<script type="module">
-  if (typeof window !== 'undefined') {
-    import("@plausible-analytics/tracker").then(({ init, trackPageview }) => {
-      init({
-        domain: "yourdomain.com",
-        autoCapturePageviews: false,
-      });
 
-      // First page load
-      trackPageview();
-
-      // Astro View Transitions navigation
-      document.addEventListener("astro:page-load", () => {
-        trackPageview();
-      });
-    });
-  }
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-Ttv3l3KzusQyi_9YkXqc6.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
 </script>
+
